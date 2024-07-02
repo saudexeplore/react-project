@@ -9,6 +9,8 @@ import Error from "./component/Error";
 import Restaurentmenu from "./component/RestaurentMenu";
 import { useState, useEffect } from "react";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStrore from "./utils/appStore";
 
 const SwigyMart = lazy(() => import("./component/SwigyMart"));
 
@@ -24,12 +26,14 @@ const Applayout =()=>{
     }, [])
 
     return (
+        <Provider store={appStrore}>
         <UserContext.Provider value={{loggedinUser: userName}}>
         <div className="app">
         <Header />
         <Outlet />
         </div>
         </UserContext.Provider>
+        </Provider>
     )
 }
 
