@@ -8,9 +8,9 @@ import Contact from "./component/Contact";
 import Error from "./component/Error";
 import Restaurentmenu from "./component/RestaurentMenu";
 import { useState, useEffect } from "react";
-import UserContext from "./utils/userContext";
 import { Provider } from "react-redux";
 import appStrore from "./utils/appStore";
+import UserContext from "./utils/userContext";
 
 const SwigyMart = lazy(() => import("./component/SwigyMart"));
 
