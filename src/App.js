@@ -10,7 +10,7 @@ import Restaurentmenu from "./component/RestaurentMenu";
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import appStrore from "./utils/appStore";
-import UserContext from "./utils/userContext";
+import UserContext from "./utils/UserContext";
 
 const SwigyMart = lazy(() => import("./component/SwigyMart"));
 
