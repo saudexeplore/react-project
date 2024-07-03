@@ -14,63 +14,60 @@ import appStrore from "./utils/appStore";
 
 const SwigyMart = lazy(() => import("./component/SwigyMart"));
 
-const Applayout =()=>{
-
-
-    const [userName, setuserName] = useState();
-    useEffect(()=>{
+const Applayout = () => {
+  const [userName, setuserName] = useState();
+  useEffect(() => {
     const data = {
-        name: "Saud Khan"
+      name: "Saud Khan",
     };
     setuserName(data.name);
-    }, [])
+  }, []);
 
-    return (
-        <Provider store={appStrore}>
-        <UserContext.Provider value={{loggedinUser: userName}}>
+  return (
+    <Provider store={appStrore}>
+      <UserContext.Provider value={{ loggedinUser: userName }}>
         <div className="app">
-        <Header />
-        <Outlet />
+          <Header />
+          <Outlet />
         </div>
-        </UserContext.Provider>
-        </Provider>
-    )
-}
+      </UserContext.Provider>
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Applayout />,
+    children: [
+      {
         path: "/",
-        element: <Applayout />,
-        children: [
-            {
-                path: "/",
-                element: <Body />
-            },
-            {
-                path: "/about-us",
-                element: <Aboutus />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
-            },
-            {
-                path: "/swiggyMart",
-                element: 
-                <Suspense fallback={<h1>Loading...</h1>}>
-                <SwigyMart />
-                </Suspense>
-            },
-            {
-                path: "/restaurent/:resId",
-                element:<Restaurentmenu />                
-            }
-        ],
-        errorElement: <Error />
-    },
-    
+        element: <Body />,
+      },
+      {
+        path: "/about-us",
+        element: <Aboutus />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/swiggyMart",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <SwigyMart />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/restaurent/:resId",
+        element: <Restaurentmenu />,
+      },
+    ],
+    errorElement: <Error />,
+  },
 ]);
-
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
