@@ -14,7 +14,7 @@ const RestaurentCard =(props)=>{
         <div className="w-64 border border-blue-300 rounded-xl bg-orange-100 min-h-96 m-4 overflow-hidden">
         <img className="w-full h-52" src={CDN_URL+cloudinaryImageId}/>
         <div className="p-2">
-        <h2>{name}</h2>
+        <h2 className="text-lg font-bold">{name}</h2>
         <h3>{cuisines.join(", ")}</h3>
         <h3>{avgRating} stars</h3>
         <h4>User: {loggedinUser}</h4>
