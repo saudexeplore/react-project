@@ -30,7 +30,7 @@ export const isRestaurentOpen = (RestaurentCard) =>{
     return (props) => {
         return (
             <div>
-                <p>Open</p>
+                {/* <p>Open</p> */}
                 <RestaurentCard {...props}/>
             </div>
         )
